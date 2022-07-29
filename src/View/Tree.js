@@ -25,7 +25,7 @@ const Tree = (props) => {
             <Tree data={item.children} />
           </div>
         ))
-        }
+      }
     </ul>
   );
 };
