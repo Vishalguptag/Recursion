@@ -75,6 +75,7 @@ const ConvertObjectToArray = () => {
       }
       // Use our mapping to locate the parent element in our data array
       const parentEl = removeDuplicates[idMapping[element.parentId]];
+
       // Add our current el to its parent's `children` array
       parentEl.children = [...(parentEl.children || []), element];
     });
@@ -83,6 +84,7 @@ const ConvertObjectToArray = () => {
   const finalResult = nestedObjectToArrayOfObject();
   return (
     <div>
+      {/* Passing Data as Props to Tree Component */}
       <Tree data={finalResult} />
     </div>
   );

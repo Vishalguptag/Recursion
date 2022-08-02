@@ -1,7 +1,7 @@
 // imported Package
 import React from 'react';
 
-// imported Component
+// imported Component for Display Tree Structure
 import ConvertObjectToArray from './ConvertObjectToArray';
 
 /**

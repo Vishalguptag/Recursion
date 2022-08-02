@@ -10,7 +10,7 @@ const Tree = (props) => {
   // Destructure Props with Validation
   const { data = '' } = props || {};
 
-  // cheking if Data is there or not if not return null
+  // if Data is not there return null
   if (!data) return null;
 
   /**
