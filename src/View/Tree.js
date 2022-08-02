@@ -10,24 +10,25 @@ const Tree = (props) => {
   // Destructure Props with Validation
   const { data = '' } = props || {};
 
-  return (
-    <ul>
-      {
-        /**
-         * Mapping the Data get from props
-         */
-        data.map((item) => (
-          <div key={item.id}>
-            <li>{item.name}</li>
+  // cheking if Data is there or not if not return null
+  if (!data) return null;
 
-            {/* Forwarding the Children array as Props
-            to this component so run this till children is there. */}
-            <Tree data={item.children} />
-          </div>
-        ))
-      }
-    </ul>
-  );
+  /**
+   * for Display Tree Structure using Recursion
+   * @param {Array} carsData
+   * @returns function
+   */
+  const recursiveFunc = (carsData) => {
+    return carsData.map((item) => {
+      return (
+        <ul>
+          <li>{item.displayName}</li>
+          {item.children ? recursiveFunc(item.children) : null}
+        </ul>
+      );
+    });
+  };
+  return recursiveFunc(data);
 };
 
 export default Tree;

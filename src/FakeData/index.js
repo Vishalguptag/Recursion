@@ -1,27 +1,35 @@
-// Fake Data for App
-const carTypes = {
+const Cars = {
   id: 1,
-  displayName: 'Root',
+  parentId: 0,
+  displayName: 'Vehicles',
   children: {
     twoWheeler: {
       id: 2,
+      parentId: 1,
       displayName: 'Two Wheeler',
       children: {
         Honda: {
           id: 4,
+          parentId: 2,
           displayName: 'Honda',
           children: {
-            Bike: 'test',
+            Bikes: {
+              id: 7,
+              parentId: 4,
+              displayName: 'HF',
+            },
           },
         },
       },
     },
     fourWheeler: {
       id: 3,
+      parentId: 1,
       displayName: 'Four Wheeler',
       children: {
         tata: {
           id: 5,
+          parentId: 3,
           displayName: 'Tata',
           children: {},
         },
@@ -29,5 +37,4 @@ const carTypes = {
     },
   },
 };
-
-export default carTypes;
+export default Cars;
