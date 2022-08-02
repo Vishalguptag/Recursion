@@ -21,7 +21,7 @@ const Tree = (props) => {
   const recursiveFunc = (carsData) => {
     return carsData.map((item) => {
       return (
-        <ul>
+        <ul key={item.id}>
           <li>{item.displayName}</li>
           {item.children ? recursiveFunc(item.children) : null}
         </ul>
