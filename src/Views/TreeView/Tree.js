@@ -1,4 +1,4 @@
-// imported Package
+// Package
 import React from 'react';
 
 /**
@@ -16,19 +16,21 @@ const Tree = (props) => {
   /**
    * for Display Tree Structure using Recursion
    * @param {Array} carsData
-   * @returns function
+   * @returns Node Elements
    */
   const recursiveFunc = (carsData) => {
+    // Dispalay item of carsData using Map method
     return carsData.map((item) => {
       return (
         <ul key={item.id}>
           <li>{item.displayName}</li>
+          {/* if Children find call this Function Recursively */}
           {item.children ? recursiveFunc(item.children) : null}
         </ul>
       );
     });
   };
+
   return recursiveFunc(data);
 };
-
 export default Tree;
