@@ -1,11 +1,11 @@
-// Imported Packages
+// Packages
 import React from 'react';
 
-// Imported Data to Convert
-import Cars from '../FakeData';
+// FakeData of nested Objects
+import Cars from '../../FakeData';
 
-// imported Component
-import Tree from '../View/Tree';
+// Component
+import Tree from '../../Views/TreeView/Tree';
 
 const ConvertObjectToArray = () => {
   // Use to Store Flatten Object
@@ -39,7 +39,7 @@ const ConvertObjectToArray = () => {
       return flattenObjectIntoArray.push(data);
     });
   };
-  // calling Recursive method
+  // calling method
   recursiveCall(Cars);
   /**
    * Removing Diplicates Values
@@ -75,14 +75,17 @@ const ConvertObjectToArray = () => {
       }
       // Use our mapping to locate the parent element in our data array
       const parentEl = removeDuplicates[idMapping[element.parentId]];
+
       // Add our current el to its parent's `children` array
       parentEl.children = [...(parentEl.children || []), element];
     });
     return root;
   };
   const finalResult = nestedObjectToArrayOfObject();
+
   return (
     <div>
+      {/* Passing Data as Props to Tree Component */}
       <Tree data={finalResult} />
     </div>
   );

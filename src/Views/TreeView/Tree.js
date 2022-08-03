@@ -1,4 +1,4 @@
-// imported Package
+// Package
 import React from 'react';
 
 /**
@@ -10,25 +10,27 @@ const Tree = (props) => {
   // Destructure Props with Validation
   const { data = '' } = props || {};
 
-  // cheking if Data is there or not if not return null
+  // if Data is not there return null
   if (!data) return null;
 
   /**
    * for Display Tree Structure using Recursion
    * @param {Array} carsData
-   * @returns function
+   * @returns Node Elements
    */
   const recursiveFunc = (carsData) => {
+    // Dispalay item of carsData using Map method
     return carsData.map((item) => {
       return (
-        <ul>
+        <ul key={item.id}>
           <li>{item.displayName}</li>
+          {/* if Children find call this Function Recursively */}
           {item.children ? recursiveFunc(item.children) : null}
         </ul>
       );
     });
   };
+
   return recursiveFunc(data);
 };
-
 export default Tree;

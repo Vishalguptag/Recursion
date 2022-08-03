@@ -1,8 +1,8 @@
-// imported Package
+// Package
 import React from 'react';
 
-// imported Component
-import ConvertObjectToArray from './ConvertObjectToArray';
+// Helper for Display Tree Structure
+import ConvertObjectToArray from './Utils/Helpers/ConvertObjectToArray';
 
 /**
  * App is Displaying main Component
